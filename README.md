@@ -19,7 +19,7 @@ Webpack demo to explain how to Webpack work and steps to install and add configr
 ### [+] Usage
 `npm run build`
 
-### [+] howistworks
+### [+] how it works
 first thing you should 
 install webpack
 [create webpack.config.js]
@@ -29,3 +29,18 @@ like :
 add module and rules
 to make webpack how to deal with files in your project like css
 
+### [+] To avoid caching because after build bundle.js didn't change
+` you should add this in filename in webpack.config.js 'bundle[contenthash].js'`
+
+### [+] To clean dist folder
+`npm i --save-dev clean-webpack-plugin'`
+edit webpack config
+```sh
+const {CleanWebpackPlugin} =require('clean-webpack-plugin');
+and add plugns with instance with this plugin
+   plugins:[
+      new CleanWebpackPlugin()  
+    ]
+
+    //now every change in bundle will browser detect it and avoid caching
+```
